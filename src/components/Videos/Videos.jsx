@@ -1,17 +1,22 @@
-import { useEffect } from "react"
-import { fetchFunction } from "../../utils/fetchFromAPI"
+import { Stack, Box } from "@mui/material";
+import VideoCard from "../VideoCard/VideoCard";
+import Loader from "../Loader/Loader";
+import ChannelCard from "../ChannelCard/ChannelCard";
 
+export default function Videos({videos}) {
+    if(!videos?.length) return <Loader />;
 
-export default function Videos() {
-    useEffect(() => {
-        fetchFunction() 
-        
-    },[])
+    console.log(videos)
 
     return (
-        <div>
-            Videooos
-        </div>
+        <Stack direction={"row"} flexWrap="wrap" justifyContent="space-evenly" alignItems="start" gap={2}>
+            {videos.map((item, idx) => (
+                <Box key={idx}  sx={{ borderRadius: '16px' }}>
+                    {item.id.videoId && <VideoCard video={item} /> }
+                    {item.id.channelId && <ChannelCard channelDetail={item} />}
+                </Box>
+            ))}
+            </Stack>
     )
 }
 
