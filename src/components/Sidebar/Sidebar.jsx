@@ -6,10 +6,9 @@ export default function Sidebar({ selectedCategory, setSelectedCategory}) {
         <Stack 
             direction="row"
             sx={{
-            overflowY: "auto",
-            height: { sx: "auto", md: "95%" },
             flexDirection: { md: "column" },
-            position: "fixed"
+            maxHeight: "100vh",
+            overflow: "scroll"
             }}>
                 {categories.map((category) => (
         <button

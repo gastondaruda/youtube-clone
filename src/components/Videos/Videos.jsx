@@ -9,7 +9,7 @@ export default function Videos({videos}) {
     console.log(videos)
 
     return (
-        <Stack direction={"row"} flexWrap="wrap" justifyContent="space-evenly" alignItems="start" gap={2}>
+        <Stack direction={"row"} flexWrap="wrap" justifyContent="space-evenly" alignItems="center" gap={2}>
             {videos.map((item, idx) => (
                 <Box key={idx}  sx={{ borderRadius: '16px' }}>
                     {item.id.videoId && <VideoCard video={item} /> }
